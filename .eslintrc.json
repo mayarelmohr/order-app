@@ -4,10 +4,13 @@
       "react",
       "import",
       "jsx-a11y",
-      "prettier"
+      "prettier",
+      "emotion"
   ],
   "extends": [
       "airbnb-base",
+      "eslint:recommended",
+      "plugin:react/recommended",
       "plugin:import/errors",
       "plugin:import/warnings",
       "plugin:react/recommended",
@@ -15,26 +18,18 @@
   ],
   "rules": {
     "no-debugger": "off",
+    "emotion/jsx-import": "error",
+    "emotion/no-vanilla": "error",
+    "emotion/import-from-emotion": "error",
+    "emotion/styled-import": "error",
+    "react/jsx-uses-react": "error",
+    "react/jsx-uses-vars": "error",
     "max-len": ["error", 180, 2, {
       "ignoreUrls": true,
       "ignoreComments": false,
       "ignoreRegExpLiterals": true,
       "ignoreStrings": true,
       "ignoreTemplateLiterals": true
-    }],
-    "class-methods-use-this": ["error", {
-      "exceptMethods": [
-        "render",
-        "getInitialState",
-        "getDefaultProps",
-        "componentWillMount",
-        "componentDidMount",
-        "componentWillReceiveProps",
-        "shouldComponentUpdate",
-        "componentWillUpdate",
-        "componentDidUpdate",
-        "componentWillUnmount"
-      ]
     }],
     "prettier/prettier": [
       "error",
