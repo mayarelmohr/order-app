@@ -6,13 +6,15 @@
     "@emotion/core": "^10.0.5",
     "@emotion/css": "^10.0.5",
     "@emotion/styled": "^10.0.5",
+    "axios": "^0.18.0",
     "prop-types": "^15.6.2",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-redux": "^6.0.0",
     "react-scripts": "2.1.2",
     "redux": "^4.0.1",
-    "redux-promise-middleware": "^5.1.1"
+    "redux-promise-middleware": "^5.1.1",
+    "reselect": "^4.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
