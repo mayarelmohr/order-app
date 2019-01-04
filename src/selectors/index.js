@@ -8,7 +8,7 @@ export default createSelector(
   [getRouter, getFilter, getProducts],
   (currentRouter, currentFilter, products) => {
     const { router, filter, cluster } = products;
-    let filteredList = [];
+    let filteredList = {};
     return products.items
       .filter(
         ({ properties: p }) =>
@@ -20,6 +20,6 @@ export default createSelector(
         filteredList[clusterValue] = filteredList[clusterValue] || [];
         filteredList[clusterValue].push(item);
         return filteredList;
-      });
+      }, {});
   }
 );
