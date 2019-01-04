@@ -8,12 +8,24 @@ function processData(payload) {
   return {
     isFetching: false,
     title,
-    router,
-    filter,
     cluster,
     items,
+    router,
+    filter,
+    routerList: getUniqueList(items, router),
+    filterList: getUniqueList(items, filter),
   };
 }
+function getUniqueList(items, property) {
+  return [
+    ...new Set(
+      items.map(item => {
+        return item.properties[property];
+      })
+    ),
+  ];
+}
+
 export default function(
   state = {
     isFetching: true,
