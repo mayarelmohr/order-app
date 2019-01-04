@@ -5,7 +5,16 @@ import PropTypes from 'prop-types';
 
 const Filter = ({ content, onClick, checked }) => {
   const checkedStyle = `color: #8800ac;
-  border-bottom: solid 4px;`;
+  &:after {
+    content: '';
+    left: 0;
+    right: 0;
+    height: 4px;
+    display: inline-block;
+    position: absolute;
+    bottom: 0;
+    background-color: #8800ac;
+  }`;
   return (
     <button
       css={css`
@@ -14,7 +23,10 @@ const Filter = ({ content, onClick, checked }) => {
         height: 44px;
         text-transform: uppercase;
         color: #707377;
-        padding: 14px 12px;
+        padding: 0 12px;
+        font-family: inherit;
+        line-height: 44px;
+        position: relative;
         font-size: 13px;
         border: solid 1px #c7ccd2;
         border-radius: 4px;
