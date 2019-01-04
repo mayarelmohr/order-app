@@ -10,7 +10,10 @@ import * as serviceWorker from './serviceWorker';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-const initialState = {};
+const initialState = {
+  currentFilter: '',
+  currentRouter: '',
+};
 
 const createStoreWithMiddleware = () => {
   return createStore(
