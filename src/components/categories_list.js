@@ -2,8 +2,8 @@
 import React from 'react';
 import { jsx, css } from '@emotion/core';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import getProductsState from '../selectors';
+import colors from '../utils/themes';
+import { CategoriesListItem } from './index';
 
 class CategoriesList extends React.Component {
   render() {
@@ -11,13 +11,20 @@ class CategoriesList extends React.Component {
     return (
       <div
         css={css`
-          background-color: #faf7fa;
+          background-color: #fff;
+          padding: 20px;
+          margin-top: 20px;
+          box-shadow: 0px 2px 5px 0px #e8e8ef;
         `}
       >
-        {name}
+        <p className="subtitle">{name}</p>
         <ul>
           {list.map((item, index) => {
-            return <li key={index}>{item.display_name}</li>;
+            return (
+              <li key={index}>
+                <CategoriesListItem content={item} clusterName={name} />
+              </li>
+            );
           })}
         </ul>
       </div>
