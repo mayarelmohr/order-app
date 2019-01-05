@@ -10,6 +10,8 @@ const Loading = () => {
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        width: 24px;
+        height: 24px;
       `}
     >
       <img src={loading} alt="Loading" />
