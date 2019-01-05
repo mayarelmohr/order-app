@@ -2,7 +2,13 @@ import React from 'react';
 import styled from '@emotion/styled/macro';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Container, Header, Loading, CategoriesWrapper } from '../components';
+import {
+  Container,
+  Header,
+  Loading,
+  ProductsWrapper,
+  CartWrapper,
+} from '../components';
 import { fetchProducts } from '../actions';
 
 class Home extends React.Component {
@@ -21,7 +27,10 @@ class Home extends React.Component {
             <h1>{title}</h1>
             <p>{`${items.length} ${title} products available`}</p>
           </Header>
-          <CategoriesWrapper products={this.props.products} />
+          <ProductsWrapper products={this.props.products} />
+        </section>
+        <section>
+          <CartWrapper />
         </section>
       </Container>
     );
