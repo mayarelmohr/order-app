@@ -7,9 +7,9 @@ import { FilterButton } from '.';
 import { fetchProducts, setFilter, setRouter } from '../actions';
 
 const listStyle = css`
-  padding: 20px 0;
   white-space: nowrap;
-  margin: 0;
+  margin-bottom: 20px;
+  padding: 0 10px;
   li {
     display: inline-block;
     &:nth-child(n + 1) {
@@ -18,12 +18,16 @@ const listStyle = css`
     }
   }
 `;
+const wrapperStyle = css`
+  padding: 20px 0;
+  position: relative;
+`;
 
 class CategoriesFilter extends React.Component {
   render() {
-    const { list, children, itemClick, checkedValue } = this.props;
+    const { list, children, itemClick, checkedValue, style } = this.props;
     return (
-      <div>
+      <div css={[wrapperStyle, style]}>
         {children}
         <ul css={listStyle}>
           <li>
