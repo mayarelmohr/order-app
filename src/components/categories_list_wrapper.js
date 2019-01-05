@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import React from 'react';
-import { jsx, css } from '@emotion/core';
+import { jsx } from '@emotion/core';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { CategoriesList } from '.';
@@ -23,11 +23,10 @@ const mapStateToProps = state => {
     currentProducts: getProductsState(state),
   };
 };
-const mapDispatchToProps = {};
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  {}
 )(CategoriesListWrapper);
 
 CategoriesListWrapper.propTypes = {
