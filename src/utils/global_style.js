@@ -56,6 +56,17 @@ export const GlobalStyles = () => {
         img {
           width: 100%;
         }
+        button {
+          padding: 0;
+          border: none;
+        }
+        .subtitle {
+          letter-spacing: 5px;
+          font-size: 18px;
+          color: #2F4662;
+          font-family: 'ProximaNova-Semibold';
+          margin-top: 0;
+        }
 
       `}
     />
