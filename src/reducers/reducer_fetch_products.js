@@ -2,7 +2,7 @@ import { FETCH_PRODUCTS } from '../actions';
 
 function processData(payload) {
   const {
-    metadata: { title, router, filter, cluster },
+    metadata: { title, router, filter, cluster, descriptor },
     items,
   } = payload.data;
   return {
@@ -12,6 +12,7 @@ function processData(payload) {
     items,
     router,
     filter,
+    descriptor,
     routerList: getUniqueList(items, router),
     filterList: getUniqueList(items, filter),
   };
