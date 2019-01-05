@@ -48,6 +48,14 @@ export const GlobalStyles = () => {
           font-size: 17px;
           color: #6A7A90;
         }
+        ul {
+          list-style-type: none;
+          padding: 0;
+          margin: 0;
+        }
+        img {
+          width: 100%;
+        }
 
       `}
     />
