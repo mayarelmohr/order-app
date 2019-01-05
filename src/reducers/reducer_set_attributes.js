@@ -1,4 +1,4 @@
-export default function(state = {}, action) {
+export function currentRouter(state = {}, action) {
   if (action.type === 'SET_ROUTER') {
     return action.payload;
   }
