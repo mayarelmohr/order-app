@@ -25,7 +25,10 @@ class Home extends React.Component {
         <section>
           <Header>
             <h1>{title}</h1>
-            <p>{`${items.length} ${title} products available`}</p>
+            <p>
+              {items.length} <span>{title.toLowerCase()}</span> products
+              available
+            </p>
           </Header>
           <ProductsWrapper products={this.props.products} />
         </section>
