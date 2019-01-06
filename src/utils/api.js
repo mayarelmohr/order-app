@@ -10,8 +10,7 @@ const axiosInstance = axios.create({
 export default class Api {
   static getProducts(url) {
     if (url) {
-      const axiosHeaders = axiosInstance.defaults.headers;
-      axiosInstance.defaults.headers = { ...axiosHeaders, baseURL: url };
+      axiosInstance.defaults.baseURL = url;
     }
     return axiosInstance.get();
   }
