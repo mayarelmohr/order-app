@@ -30,12 +30,15 @@ export default createSelector(
 function computeDescriptorValue(descriptor, propObj) {
   let computedDescriptor = descriptor;
   const regex = /\${(.*?)\}/;
-  descriptor.split(' ').map(val => {
-    const computedValue = regex.exec(val)[1];
-    computedDescriptor = computedDescriptor.replace(
-      regex.exec(val)[0],
-      propObj[computedValue]
-    );
-  });
+  descriptor
+    .trim()
+    .split(' ')
+    .map(val => {
+      const computedValue = regex.exec(val)[1];
+      computedDescriptor = computedDescriptor.replace(
+        regex.exec(val)[0],
+        propObj[computedValue]
+      );
+    });
   return computedDescriptor;
 }
