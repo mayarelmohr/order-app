@@ -124,7 +124,7 @@ class CategoriesListItem extends React.Component {
               </p>
             ) : null}
             <p css={titleStyle}>{itemName}</p>
-            <span css={priceStyle}>{`AED ${price}`}</span>
+            <span css={priceStyle}>{`AED ${price.toFixed(2)}`}</span>
             <span css={discountStyle}>
               {hasOffer ? `Save ${offer.offer.discount}%` : ''}
             </span>
