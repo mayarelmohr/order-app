@@ -27,11 +27,12 @@ export default {
     }
     p:not(.title) {
       margin: 0;
+    }
+    .title + p {
       opacity: 0.6;
     }
     svg {
       fill: #d8d8d8;
-      opacity: 0.6;
       width: 23px;
       height: 23px;
     }
@@ -59,5 +60,48 @@ export default {
       outline: none;
       box-shadow: 2px 4px 5px #4a4848;
     }
+  `,
+  linkButtonStyle: css`
+    background: none;
+    opacity: 0.6;
+    &:focus {
+      outline: none;
+    }
+    &:hover {
+      opacity: 1;
+    }
+  `,
+  formStyle: css`
+    flex: 1;
+    font-size: 13px;
+    flex-direction: column;
+    justify-content: flex-start;
+    position: relative;
+    label {
+      display: block;
+      text-transform: uppercase;
+      font-size: 13px;
+    }
+    input {
+      width: 90%;
+      background: none;
+      border: none;
+      height: 25px;
+      line-height: 25px;
+      opacity: 0.78;
+      font-size: 13px;
+      color: #fff;
+      border-bottom: solid 1px #fff;
+      &:focus {
+        opacity: 1;
+        outline: none;
+      }
+    }
+  `,
+  errorStyle: css`
+    color: red;
+    position: absolute;
+    top: 0;
+    right: 10%;
   `,
 };
