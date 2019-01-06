@@ -4,7 +4,14 @@ import loading from '../loading.svg';
 
 const Loading = () => {
   return (
-    <div>
+    <div
+      css={css`
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: calc(100vh - 74px);
+      `}
+    >
       <img
         css={css`
           width: 24px;
