@@ -69,7 +69,9 @@ class CategoriesListItem extends React.Component {
     } = this.props.content;
 
     const hasOffer = offer !== null;
-
+    const price = hasOffer
+      ? offer.price_after_discount
+      : properties.total_selling_price;
     return (
       <div
         css={css`
@@ -122,13 +124,7 @@ class CategoriesListItem extends React.Component {
               </p>
             ) : null}
             <p css={titleStyle}>{itemName}</p>
-            <span css={priceStyle}>
-              {`AED ${
-                hasOffer
-                  ? offer.price_after_discount
-                  : properties.total_selling_price
-              }`}
-            </span>
+            <span css={priceStyle}>{`AED ${price}`}</span>
             <span css={discountStyle}>
               {hasOffer ? `Save ${offer.offer.discount}%` : ''}
             </span>
@@ -154,6 +150,7 @@ class CategoriesListItem extends React.Component {
               const item = {
                 ...this.props.content,
                 ...{ cluster_name: this.props.clusterName },
+                ...{ price },
               };
               if (this.state.clicked) {
                 this.props.removeProduct(item);
