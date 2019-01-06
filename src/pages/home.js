@@ -1,5 +1,6 @@
 import React from 'react';
-import styled from '@emotion/styled/macro';
+/** @jsx jsx */
+import { jsx, css } from '@emotion/core';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import {
@@ -22,19 +23,27 @@ class Home extends React.Component {
     }
     return (
       <Container>
-        <section>
-          <Header>
-            <h1>{title}</h1>
-            <p>
-              {items.length} <span>{title.toLowerCase()}</span> products
-              available
-            </p>
-          </Header>
-          <ProductsWrapper products={this.props.products} />
-        </section>
-        <section>
-          <CartWrapper />
-        </section>
+        <Header>
+          <p className="title">{title}</p>
+          <p>
+            {items.length} <span>{title.toLowerCase()}</span> products available
+          </p>
+        </Header>
+        <div
+          css={css`
+            display: flex;
+            section {
+              flex-basis: 50%;
+            }
+          `}
+        >
+          <section>
+            <ProductsWrapper products={this.props.products} />
+          </section>
+          <section>
+            <CartWrapper />
+          </section>
+        </div>
       </Container>
     );
   }
