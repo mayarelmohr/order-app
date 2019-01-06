@@ -5,6 +5,9 @@ export default function(state = [], action) {
   if (action.type === 'REMOVE_PRODUCT') {
     return removeProductFromCart(state, action.payload);
   }
+  if (action.type === 'CLEAR_PRODUCT') {
+    return [];
+  }
   return state;
 }
 
