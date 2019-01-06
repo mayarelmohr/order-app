@@ -1,64 +1,30 @@
 import React from 'react';
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import {
-  Container,
-  Header,
-  Loading,
-  ProductsWrapper,
-  CartWrapper,
-} from '../components';
-import { fetchProducts } from '../actions';
+import { Container, Header, ProductsWrapper, CartWrapper } from '../components';
 
-class Home extends React.Component {
-  componentDidMount() {
-    this.props.fetchProducts();
-  }
-  render() {
-    const { title, items, isFetching } = this.props.products;
-    if (isFetching) {
-      return <Loading />;
-    }
-    return (
-      <Container>
-        <Header />
+const Home = () => {
+  return (
+    <Container>
+      <Header />
 
-        <div
-          css={css`
-            display: flex;
-            section {
-              flex-basis: 50%;
-            }
-          `}
-        >
-          <section>
-            <ProductsWrapper products={this.props.products} />
-          </section>
-          <section>
-            <CartWrapper />
-          </section>
-        </div>
-      </Container>
-    );
-  }
-}
-
-function mapStateToProps(state) {
-  const { products } = state;
-  return { products };
-}
-const mapDispatchToProps = {
-  fetchProducts,
+      <div
+        css={css`
+          section {
+            width: 50%;
+            postition: relative;
+          }
+        `}
+      >
+        <section>
+          <ProductsWrapper />
+        </section>
+        <section>
+          <CartWrapper />
+        </section>
+      </div>
+    </Container>
+  );
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Home);
-
-Home.propTypes = {
-  fetchProducts: PropTypes.func,
-  products: PropTypes,
-};
+export default Home;
