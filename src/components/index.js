@@ -1,5 +1,5 @@
 export { default as Container } from './container';
-export { default as Header } from './header';
+export { default as Header } from './Header/header';
 export { default as Loading } from './loading';
 export { default as ProductsWrapper } from './products_wrapper';
 export { default as CategoriesFilter } from './categories_filter';
