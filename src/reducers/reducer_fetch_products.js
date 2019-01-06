@@ -39,6 +39,9 @@ export default function(
     case FETCH_PRODUCTS.FULFILLED:
       newState = processData(action.payload);
       break;
+    case FETCH_PRODUCTS.PENDING:
+      newState = { isFetching: true };
+      break;
     case FETCH_PRODUCTS.REJECTED:
       newState = { isFetching: false };
       break;
