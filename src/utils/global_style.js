@@ -59,6 +59,11 @@ export const GlobalStyles = () => {
         button {
           padding: 0;
           border: none;
+          font-family: inherit;
+          &:focus {
+            outline: none;
+            box-shadow: 2px 4px 5px #bbbbbb;
+          }
         }
         .subtitle {
           letter-spacing: 5px;
