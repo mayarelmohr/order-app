@@ -8,8 +8,9 @@ import { fetchProducts, setFilter, setRouter } from '../actions';
 
 const listStyle = css`
   white-space: nowrap;
-  margin-bottom: 20px;
-  padding: 0 10px;
+  margin-bottom: 10px;
+  padding: 10px 10px;
+  overflow-x: auto;
   li {
     display: inline-block;
     &:nth-child(n + 1) {
@@ -19,7 +20,7 @@ const listStyle = css`
   }
 `;
 const wrapperStyle = css`
-  padding: 20px 0;
+  padding-top: 20px;
   position: relative;
 `;
 
