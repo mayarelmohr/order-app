@@ -4,7 +4,7 @@ import { jsx } from '@emotion/core';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { CategoriesList } from '.';
-import getProductsState from '../selectors';
+import { getProductsState } from '../selectors';
 
 class CategoriesListWrapper extends React.Component {
   render() {
