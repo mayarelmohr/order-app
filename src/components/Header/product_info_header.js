@@ -35,11 +35,13 @@ class ProductInfoHeader extends React.Component {
             <p className="title">{isFetching ? 'Subcategory name ' : title}</p>
             {isFetching ? (
               <p>Fetching Products</p>
-            ) : (
+            ) : items ? (
               <p>
                 {items.length} <span>{title.toLowerCase()}</span> products
                 available
               </p>
+            ) : (
+              <p>No items available</p>
             )}
           </div>
         )}
