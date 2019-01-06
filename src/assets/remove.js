@@ -20,7 +20,7 @@ const Remove = () => {
         css={css`
           transform: rotate(45deg);
           position: absolute;
-          top: 9px;
+          top: 8px;
         `}
       />
       <span
