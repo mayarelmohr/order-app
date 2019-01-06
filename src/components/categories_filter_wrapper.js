@@ -49,6 +49,9 @@ class CategoriesFilterWrapper extends React.Component {
               height: 1px;
               background-color: #e3eaf0;
             }
+            ul {
+              margin-left: 20px;
+            }
           `}
         >
           <p>Filter by</p>
