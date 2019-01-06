@@ -23,12 +23,8 @@ class Home extends React.Component {
     }
     return (
       <Container>
-        <Header>
-          <p className="title">{title}</p>
-          <p>
-            {items.length} <span>{title.toLowerCase()}</span> products available
-          </p>
-        </Header>
+        <Header />
+
         <div
           css={css`
             display: flex;
