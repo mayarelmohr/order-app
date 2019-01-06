@@ -66,7 +66,7 @@ export const GlobalStyles = () => {
           }
         }
         .subtitle {
-          letter-spacing: 5px;
+          letter-spacing: 3px;
           font-size: 18px;
           color: #2F4662;
           font-family: 'ProximaNova-Semibold';
