@@ -15,7 +15,7 @@ class CategoriesFilterWrapper extends React.Component {
           background-color: #faf7fa;
           border-bottom: solid 1px #c7c6c7;
           p {
-            margin: 0 10px 20px 40px;
+            margin: 0 10px 10px 40px;
             letter-spacing: 1.7px;
             color: #6b7a8f;
           }

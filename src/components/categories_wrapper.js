@@ -6,7 +6,11 @@ import { CategoriesListWrapper, CategoriesFilterWrapper } from '.';
 
 const CategoriesWrapper = () => {
   return (
-    <div>
+    <div
+      css={css`
+        flex: 1;
+      `}
+    >
       <CategoriesFilterWrapper />
       <CategoriesListWrapper />
     </div>
