@@ -4,6 +4,17 @@ const getRouter = state => state.currentRouter;
 const getFilter = state => state.currentFilter;
 const getProducts = state => state.products;
 
+/**
+ * get the value of the descriptor received from the API
+ *
+ * It separated the string received into an array and check if it contains the ${} variable
+ * and extracts its value from properties object
+ *
+ * @param {string}   descriptor  The string which has the template
+ * @param {propObj}  Object      The object where data is extracted from
+ * @return {computedDescriptor} The final computed string
+ */
+
 function computeDescriptorValue(descriptor, propObj) {
   let computedDescriptor = descriptor;
   const regex = /\${(.*?)\}/;
@@ -16,6 +27,19 @@ function computeDescriptorValue(descriptor, propObj) {
   return computedDescriptor;
 }
 
+/**
+ * Selector Function is used to map on state from reducer and memoize the result
+ * It filters and maps the data according to currentRouter and currentFilter attr
+ * It computes descriptor and assigns it to output object
+ * It groups the results according to cluster attribute
+ * It takes an array of input-selectors and a transform function as its arguments
+ * @param {transformFunctions}   Array  The transform functions
+ * @param {currentRouter}  String     The current selected value for router
+ * @param {currentFilter}  String     The current selected value for filter
+ * @param {cluster}  String     The current selected value for cluster
+ * @param {descriptor}  String     The current selected value for descriptor
+ * @return {Array}  Array of the visible products
+ */
 export default createSelector(
   [getRouter, getFilter, getProducts],
   (currentRouter, currentFilter, products) => {
