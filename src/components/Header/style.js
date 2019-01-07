@@ -64,6 +64,8 @@ export default {
   linkButtonStyle: css`
     background: none;
     opacity: 0.6;
+    border: none;
+    padding: 0;
     &:focus {
       outline: none;
     }
