@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx, css } from '@emotion/core';
+import { jsx } from '@emotion/core';
 import PropTypes from 'prop-types';
 import { FilterButton } from '..';
 import styles from './style';
@@ -14,7 +14,7 @@ const CategoriesFilter = props => {
           <FilterButton content="All" value="" isRouter={isRouter} />
         </li>
         {list.map(item => (
-          <li key={item.id}>
+          <li key={item}>
             <FilterButton content={item} value={item} isRouter={isRouter} />
           </li>
         ))}
@@ -27,13 +27,11 @@ export default CategoriesFilter;
 
 CategoriesFilter.defaultProps = {
   isRouter: PropTypes.bool,
-  style: PropTypes.object,
   children: PropTypes.node,
   list: PropTypes.arrayOf(PropTypes.string),
 };
 CategoriesFilter.propTypes = {
   isRouter: PropTypes.bool,
-  style: PropTypes.object,
   children: PropTypes.node,
   list: PropTypes.arrayOf(PropTypes.string),
 };
