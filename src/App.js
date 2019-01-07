@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Home from './pages/home';
 import GlobalStyle from './utils/global_style';
 

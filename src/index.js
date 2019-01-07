@@ -13,15 +13,11 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const initialState = {
   currentFilter: '',
   currentRouter: '',
+  cart: [],
 };
 
-const createStoreWithMiddleware = () => {
-  return createStore(
-    reducers,
-    initialState,
-    composeEnhancers(applyMiddleware(reduxPromiseMiddleware()))
-  );
-};
+const createStoreWithMiddleware = () =>
+  createStore(reducers, initialState, composeEnhancers(applyMiddleware(reduxPromiseMiddleware())));
 
 ReactDOM.render(
   <Provider store={createStoreWithMiddleware()}>
