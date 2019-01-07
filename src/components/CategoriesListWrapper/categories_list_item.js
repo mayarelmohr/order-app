@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import { addProduct, removeProduct } from '../../actions';
 import { Add, Tick, Remove } from '../../assets';
 import style from './style';
-
+import { makeCheckItemsInCart } from '../../selectors';
 /**
  * List item for product that can add to cart and remove from cart
  * It's also visible in cart list with the remove only option
@@ -24,7 +24,8 @@ class CategoriesListItem extends React.Component {
       computer_descriptor: itemName,
       cluster_name: clusterName,
     } = this.props.content;
-
+    const isChecked = this.props.checked;
+    debugger;
     const hasOffer = offer !== null;
     const price = hasOffer ? offer.price_after_discount : properties.total_selling_price;
     return (
@@ -75,6 +76,9 @@ class CategoriesListItem extends React.Component {
         {this.props.cart && (
           <button
             type="button"
+            css={css`
+              ${style.removeButton}
+            `}
             onClick={() => {
               this.props.removeProduct(this.props.content);
             }}
@@ -85,8 +89,10 @@ class CategoriesListItem extends React.Component {
         {!this.props.cart && (
           <button
             type="button"
-            css={style.buttonStyle}
-            className={this.state.clicked ? 'clicked' : ''}
+            css={css`
+              ${style.buttonStyle}
+            `}
+            className={isChecked ? 'clicked' : ''}
             onClick={() => {
               this.setState(prevState => ({ clicked: !prevState.clicked }));
               const item = {
@@ -101,7 +107,7 @@ class CategoriesListItem extends React.Component {
               }
             }}
           >
-            {this.state.clicked ? <Tick /> : <Add />}
+            {isChecked ? <Tick /> : <Add />}
           </button>
         )}
       </div>
@@ -109,14 +115,21 @@ class CategoriesListItem extends React.Component {
   }
 }
 
-const mapStateToProps = () => ({});
+const makeMapStateToProps = () => {
+  const checkItemsInCart = makeCheckItemsInCart();
+  const mapStateToProps = (state, props) => ({
+    checked: checkItemsInCart(state, props.content.id),
+  });
+  return mapStateToProps;
+};
+
 const mapDispatchToProps = {
   addProduct,
   removeProduct,
 };
 
 export default connect(
-  mapStateToProps,
+  makeMapStateToProps,
   mapDispatchToProps
 )(CategoriesListItem);
 
