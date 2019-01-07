@@ -30,10 +30,6 @@ export default {
       fill: ${colors.primaryColor};
       vertical-align: middle;
     }
-    &:focus {
-      outline: none;
-      box-shadow: 2px 4px 5px #bbbbbb;
-    }
     &:hover,
     &.clicked {
       background-color: ${colors.primaryColor};
@@ -45,6 +41,19 @@ export default {
       background-color: #fff;
       svg {
         fill: ${colors.primaryColor};
+      }
+    }
+    &:focus {
+      outline: none;
+    }
+  `,
+  removeButton: css`
+    &:focus {
+      outline: none;
+    }
+    &:hover {
+      span {
+        background-color: #5f5b5b;
       }
     }
   `,
