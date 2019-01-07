@@ -1,6 +1,9 @@
 import React from 'react';
 import { Global, css } from '@emotion/core';
 
+/**
+ * Global style for whole app
+ */
 export const GlobalStyles = () => (
   <Global
     styles={css`
@@ -59,10 +62,6 @@ export const GlobalStyles = () => (
         padding: 0;
         border: none;
         font-family: inherit;
-        &:focus {
-          outline: none;
-          box-shadow: 2px 4px 5px #bbbbbb;
-        }
       }
       .subtitle {
         letter-spacing: 3px;
