@@ -105,7 +105,7 @@ class CategoriesListItem extends React.Component {
   }
 }
 
-const mapStateToProps = () => {};
+const mapStateToProps = () => ({});
 const mapDispatchToProps = {
   addProduct,
   removeProduct,
@@ -118,5 +118,11 @@ export default connect(
 
 CategoriesListItem.propTypes = {
   fetchProducts: PropTypes.func,
-  products: PropTypes,
+  content: PropTypes.shape({
+    offer: PropTypes.object,
+    properties: PropTypes.object,
+    photo_urls: PropTypes.object,
+    computer_descriptor: PropTypes.string,
+    cluster_name: PropTypes.string,
+  }),
 };

@@ -77,7 +77,7 @@ class ProductInfoHeader extends React.Component {
                   ${style.errorStyle}
                 `}
               >
-                Doesn't seem like a valid url
+                Doesn&apos;t seem like a valid url
               </p>
             )}
           </form>
@@ -88,7 +88,7 @@ class ProductInfoHeader extends React.Component {
             ${style.linkButtonStyle}
           `}
           onClick={() => {
-            this.setState({ showLink: !this.state.showLink });
+            this.setState(prevState => ({ showLink: !prevState.showLink }));
           }}
         >
           {!this.state.showLink ? <LinkIcon /> : <Remove />}

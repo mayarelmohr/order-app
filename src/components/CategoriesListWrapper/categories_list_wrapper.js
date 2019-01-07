@@ -28,5 +28,5 @@ export default connect(
 )(CategoriesListWrapper);
 
 CategoriesListWrapper.propTypes = {
-  currentProducts: PropTypes.objectOf(PropTypes.object),
+  currentProducts: PropTypes.objectOf(PropTypes.array),
 };

@@ -16,6 +16,7 @@
     "emotion/jsx-import": "error",
     "no-nested-ternary": "off",
     "react/jsx-one-expression-per-line": "off",
+    "react/forbid-prop-types": ["on", { "forbid": ["any", "array"]}],
     "no-shadow": "off",
     "react/prop-types": [2, {}],
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],

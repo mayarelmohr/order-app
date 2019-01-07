@@ -8,7 +8,7 @@ export default {
     overflow-x: auto;
     li {
       display: inline-block;
-      &:nth-child(n + 1) {
+      &:nth-of-type(n + 1) {
         margin-right: 5px;
         margin-left: 5px;
       }
