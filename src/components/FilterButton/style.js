@@ -1,5 +1,4 @@
 import { css } from '@emotion/core';
-import colors from '../../utils/themes';
 
 export default {
   buttonStyle: css`

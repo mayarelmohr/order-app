@@ -4,7 +4,7 @@ import { jsx, css } from '@emotion/core';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { fetchProducts } from '../../actions';
-import { Link, Remove } from '../../assets';
+import { LinkIcon, Remove } from '../../assets';
 import style from './style';
 
 class ProductInfoHeader extends React.Component {
@@ -13,6 +13,7 @@ class ProductInfoHeader extends React.Component {
     error: false,
     apiLink: '',
   };
+
   /*
    * reference from here   https://www.quora.com/What-is-the-best-way-to-validate-for-a-URL-in-JavaScript
    */
@@ -20,9 +21,8 @@ class ProductInfoHeader extends React.Component {
     const regexp = /^(?:(?:https?|ftp):\/\/)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,})))(?::\d{2,5})?(?:\/\S*)?$/;
     if (regexp.test(str)) {
       return true;
-    } else {
-      return false;
     }
+    return false;
   };
 
   render() {
@@ -37,8 +37,7 @@ class ProductInfoHeader extends React.Component {
               <p>Fetching Products</p>
             ) : items ? (
               <p>
-                {items.length} <span>{title.toLowerCase()}</span> products
-                available
+                {items.length} <span>{title.toLowerCase()}</span> products available
               </p>
             ) : (
               <p>No items available</p>
@@ -60,16 +59,18 @@ class ProductInfoHeader extends React.Component {
               e.preventDefault();
             }}
           >
-            <label htmlFor="customLink">API Subcategory link</label>
-            <input
-              type="text"
-              name="customLink"
-              id="customLink"
-              value={this.state.apiLink}
-              onChange={e => {
-                this.setState({ apiLink: e.target.value });
-              }}
-            />
+            <label htmlFor="customLink">
+              API Subcategory link
+              <input
+                type="text"
+                name="customLink"
+                id="customLink"
+                value={this.state.apiLink}
+                onChange={e => {
+                  this.setState({ apiLink: e.target.value });
+                }}
+              />
+            </label>
             {this.state.error && (
               <p
                 css={css`
@@ -90,7 +91,7 @@ class ProductInfoHeader extends React.Component {
             this.setState({ showLink: !this.state.showLink });
           }}
         >
-          {!this.state.showLink ? <Link /> : <Remove />}
+          {!this.state.showLink ? <LinkIcon /> : <Remove />}
         </button>
       </div>
     );

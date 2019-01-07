@@ -3,56 +3,9 @@ import React from 'react';
 import { jsx, css } from '@emotion/core';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { addProduct, removeProduct } from '../actions';
-import colors from '../utils/themes';
-import { Add, Tick, Remove } from '../assets';
-
-const titleStyle = css`
-  color: #6f8094;
-  font-size: 18px;
-  line-height: 1.6;
-  margin: 0;
-`;
-const priceStyle = css`
-  color: ${colors.primaryColor};
-  font-size: 14px;
-`;
-const discountStyle = css`
-  color: #4dc498;
-  font-size: 14px;
-  padding-left: 17px;
-`;
-const buttonStyle = css`
-  width: 24px;
-  height: 24px;
-  border: solid 1px ${colors.primaryColor};
-  background-color: #fff;
-  border-radius: 50%;
-  padding: 0;
-  svg {
-    width: 12px;
-    height: 12px;
-    fill: ${colors.primaryColor};
-    vertical-align: middle;
-  }
-  &:focus {
-    outline: none;
-    box-shadow: 2px 4px 5px #bbbbbb;
-  }
-  &:hover,
-  &.clicked {
-    background-color: ${colors.primaryColor};
-    svg {
-      fill: #fff;
-    }
-  }
-  &.clicked:hover {
-    background-color: #fff;
-    svg {
-      fill: ${colors.primaryColor};
-    }
-  }
-`;
+import { addProduct, removeProduct } from '../../actions';
+import { Add, Tick, Remove } from '../../assets';
+import style from './style';
 
 class CategoriesListItem extends React.Component {
   state = {
@@ -69,16 +22,11 @@ class CategoriesListItem extends React.Component {
     } = this.props.content;
 
     const hasOffer = offer !== null;
-    const price = hasOffer
-      ? offer.price_after_discount
-      : properties.total_selling_price;
+    const price = hasOffer ? offer.price_after_discount : properties.total_selling_price;
     return (
       <div
         css={css`
-          display: flex;
-          padding: 7px;
-          justify-content: space-between;
-          align-items: center;
+          ${style.itemSeparator}
         `}
       >
         <div
@@ -89,23 +37,15 @@ class CategoriesListItem extends React.Component {
         >
           <div
             css={css`
-              display: inline-block;
-              width: 8%;
-              min-width: 50px;
+              ${style.imageWrapper}
             `}
           >
             <picture>
               <source
-                srcSet={`${images['small_square']}, ${
-                  images['medium_square']
-                } 2x`}
+                srcSet={`${images.small_square}, ${images.medium_square} 2x`}
                 media="(min-width: 768px)"
               />
-              <img
-                src={images['small_square']}
-                alt={itemName}
-                srcSet={`${images['medium_square']} 2x`}
-              />
+              <img src={images.small_square} alt={itemName} srcSet={`${images.medium_square} 2x`} />
             </picture>
           </div>
           <div
@@ -123,11 +63,9 @@ class CategoriesListItem extends React.Component {
                 {clusterName}
               </p>
             ) : null}
-            <p css={titleStyle}>{itemName}</p>
-            <span css={priceStyle}>{`AED ${price.toFixed(2)}`}</span>
-            <span css={discountStyle}>
-              {hasOffer ? `Save ${offer.offer.discount}%` : ''}
-            </span>
+            <p css={style.titleStyle}>{itemName}</p>
+            <span css={style.priceStyle}>{`AED ${price.toFixed(2)}`}</span>
+            <span css={style.discountStyle}>{hasOffer ? `Save ${offer.offer.discount}%` : ''}</span>
           </div>
         </div>
         {this.props.cart && (
@@ -143,10 +81,10 @@ class CategoriesListItem extends React.Component {
         {!this.props.cart && (
           <button
             type="button"
-            css={buttonStyle}
+            css={style.buttonStyle}
             className={this.state.clicked ? 'clicked' : ''}
             onClick={() => {
-              this.setState({ clicked: !this.state.clicked });
+              this.setState(prevState => ({ clicked: !prevState.clicked }));
               const item = {
                 ...this.props.content,
                 ...{ cluster_name: this.props.clusterName },
@@ -167,13 +105,7 @@ class CategoriesListItem extends React.Component {
   }
 }
 
-const mapStateToProps = state => {
-  const { products, currentRouter } = state;
-  return {
-    products,
-    currentRouter,
-  };
-};
+const mapStateToProps = () => {};
 const mapDispatchToProps = {
   addProduct,
   removeProduct,

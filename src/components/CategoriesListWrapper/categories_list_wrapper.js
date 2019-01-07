@@ -3,26 +3,24 @@ import React from 'react';
 import { jsx } from '@emotion/core';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { CategoriesList } from '.';
-import { getProductsState } from '../selectors';
+import CategoriesList from './categories_list';
+import { getProductsState } from '../../selectors';
 
 class CategoriesListWrapper extends React.Component {
   render() {
     const { currentProducts } = this.props;
     return (
       <div>
-        {Object.keys(currentProducts).map((key, index) => (
-          <CategoriesList key={index} name={key} list={currentProducts[key]} />
+        {Object.keys(currentProducts).map(key => (
+          <CategoriesList key={key} name={key} list={currentProducts[key]} />
         ))}
       </div>
     );
   }
 }
-const mapStateToProps = state => {
-  return {
-    currentProducts: getProductsState(state),
-  };
-};
+const mapStateToProps = state => ({
+  currentProducts: getProductsState(state),
+});
 
 export default connect(
   mapStateToProps,
@@ -30,5 +28,5 @@ export default connect(
 )(CategoriesListWrapper);
 
 CategoriesListWrapper.propTypes = {
-  currentProducts: PropTypes.object,
+  currentProducts: PropTypes.objectOf(PropTypes.object),
 };

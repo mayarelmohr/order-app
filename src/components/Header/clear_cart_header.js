@@ -36,7 +36,7 @@ class ClearCartHeader extends React.Component {
   }
 }
 
-const mapStateToProps = () => {};
+const mapStateToProps = () => ({});
 const mapDispatchToProps = {
   clearProduct,
 };

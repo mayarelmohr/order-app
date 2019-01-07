@@ -1,20 +1,17 @@
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core';
-import loading from '../loading.svg';
+import loading from './loading.svg';
+import style from './style';
 
 const Loading = () => (
   <div
     css={css`
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: calc(100vh - 74px);
+      ${style.loadingWrapper}
     `}
   >
     <img
       css={css`
-        width: 24px;
-        height: 24px;
+        ${style.icon}
       `}
       src={loading}
       alt="Loading"
