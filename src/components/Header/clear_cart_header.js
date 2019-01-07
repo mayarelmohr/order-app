@@ -6,6 +6,9 @@ import PropTypes from 'prop-types';
 import { clearProduct } from '../../actions';
 import style from './style';
 
+/**
+ * The header component part which can clear the cart list
+ */
 class ClearCartHeader extends React.Component {
   render() {
     const { clearProduct } = this.props;

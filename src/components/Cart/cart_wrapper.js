@@ -7,6 +7,11 @@ import { CategoriesListItem } from '../index';
 import { getSum } from '../../selectors';
 import style from './style';
 
+/**
+ * Wrapper for cart list
+ * It has the iotion to remove elements from cart
+ * In addtion to the total price of list
+ */
 class CartWrapper extends React.Component {
   render() {
     const { currentProducts, total } = this.props;

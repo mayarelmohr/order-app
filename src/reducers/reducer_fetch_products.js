@@ -1,8 +1,21 @@
 import { FETCH_PRODUCTS } from '../actions';
 
+/**
+ * It takes an object property and a list to get a new unique list of
+ * the value of the given property
+ *
+ * @param {array}   items  The list where we need to extract property from
+ * @param {property}  Object.key  The property that should be extracted
+ * @return {array} unique list with mapped property
+ */
+
 function getUniqueList(items, property) {
   return [...new Set(items.map(item => item.properties[property]))];
 }
+
+/**
+ * It reduces the data received from endpoint and flattens to be easily accessible
+ */
 function processData(payload) {
   const {
     metadata: { title, router, filter, cluster, descriptor },
@@ -21,6 +34,10 @@ function processData(payload) {
   };
 }
 
+/**
+ * Reducer function to map redux action and returns new state
+ * It's used for fetching products
+ */
 export default function(
   state = {
     isFetching: true,

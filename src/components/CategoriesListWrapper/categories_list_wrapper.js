@@ -6,6 +6,10 @@ import { connect } from 'react-redux';
 import CategoriesList from './categories_list';
 import { getProductsState } from '../../selectors';
 
+/**
+ * Component that has the lists for categories that were
+ * output by the selector according to the filter values
+ */
 class CategoriesListWrapper extends React.Component {
   render() {
     const { currentProducts } = this.props;

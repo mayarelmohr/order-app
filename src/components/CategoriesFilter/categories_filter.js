@@ -4,6 +4,11 @@ import PropTypes from 'prop-types';
 import { FilterButton } from '..';
 import styles from './style';
 
+/**
+ * List of Filter buttons either Router or Filters in addition to
+ * button that selects all kinds
+ */
+
 const CategoriesFilter = props => {
   const { list, children, style, isRouter } = props;
   return (

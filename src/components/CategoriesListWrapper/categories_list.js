@@ -4,6 +4,10 @@ import PropTypes from 'prop-types';
 import CategoriesListItem from './categories_list_item';
 import style from './style';
 
+/**
+ * List for filtered products clustered by the cluster attribute
+ */
+
 const CategoriesList = props => {
   const { list, name } = props;
   return (

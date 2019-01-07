@@ -5,7 +5,10 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { setRouter, setFilter } from '../../actions';
 import style from './style';
-
+/**
+ * The Button element for filter which sets redux state for either filter
+ *  or router according received props
+ */
 class Filter extends PureComponent {
   render() {
     const {

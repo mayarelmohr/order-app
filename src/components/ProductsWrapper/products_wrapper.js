@@ -7,6 +7,10 @@ import { CategoriesWrapper, Loading } from '..';
 import { fetchProducts } from '../../actions';
 import style from './style';
 
+/**
+ * The left pane of the website
+ * Which contains teh filters and currents products
+ */
 class ProductsWrapper extends React.Component {
   componentDidMount() {
     this.props.fetchProducts();

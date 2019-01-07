@@ -7,6 +7,10 @@ import { addProduct, removeProduct } from '../../actions';
 import { Add, Tick, Remove } from '../../assets';
 import style from './style';
 
+/**
+ * List item for product that can add to cart and remove from cart
+ * It's also visible in cart list with the remove only option
+ */
 class CategoriesListItem extends React.Component {
   state = {
     clicked: false,

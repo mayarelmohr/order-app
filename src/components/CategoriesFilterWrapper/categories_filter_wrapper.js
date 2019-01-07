@@ -6,6 +6,10 @@ import { connect } from 'react-redux';
 import { CategoriesFilter } from '..';
 import style from './style';
 
+/**
+ * Wrapper for two lists of filters
+ */
+
 class CategoriesFilterWrapper extends React.Component {
   render() {
     const { title, routerList, filterList } = this.props.products;
