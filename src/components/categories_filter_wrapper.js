@@ -31,7 +31,9 @@ class CategoriesFilterWrapper extends React.Component {
           checkedValue={this.props.currentRouter}
         >
           <p>
-            What type of <span>{title.toLowerCase()}</span> are you looking for?
+            What type of
+            <span>{` ${title.toLowerCase()} `}</span>
+            are you looking for?
           </p>
         </CategoriesFilter>
 

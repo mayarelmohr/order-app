@@ -4,7 +4,7 @@ import { jsx, css } from '@emotion/core';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { FilterButton } from '.';
-import { fetchProducts, setFilter, setRouter } from '../actions';
+import { fetchProducts, setRouter } from '../actions';
 
 const listStyle = css`
   white-space: nowrap;
@@ -33,26 +33,24 @@ class CategoriesFilter extends React.Component {
         <ul css={listStyle}>
           <li>
             <FilterButton
-              content={'All'}
+              content="All"
               checked={checkedValue === ''}
               onClick={() => {
                 itemClick('');
               }}
             />
           </li>
-          {list.map((item, index) => {
-            return (
-              <li key={index}>
-                <FilterButton
-                  content={item}
-                  checked={checkedValue === item}
-                  onClick={() => {
-                    itemClick(item);
-                  }}
-                />
-              </li>
-            );
-          })}
+          {list.map(item => (
+            <li key={item.id}>
+              <FilterButton
+                content={item}
+                checked={checkedValue === item}
+                onClick={() => {
+                  itemClick(item);
+                }}
+              />
+            </li>
+          ))}
         </ul>
       </div>
     );

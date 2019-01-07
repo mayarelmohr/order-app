@@ -1,3 +1,10 @@
+function addProductToCart(state, product) {
+  return [...state, product];
+}
+function removeProductFromCart(state, product) {
+  return state.filter(item => product.id !== item.id);
+}
+
 export default function(state = [], action) {
   if (action.type === 'ADD_PRODUCT') {
     return addProductToCart(state, action.payload);
@@ -9,11 +16,4 @@ export default function(state = [], action) {
     return [];
   }
   return state;
-}
-
-function addProductToCart(state, product) {
-  return [...state, product];
-}
-function removeProductFromCart(state, product) {
-  return state.filter(item => product.id !== item.id);
 }

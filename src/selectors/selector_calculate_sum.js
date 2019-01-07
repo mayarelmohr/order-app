@@ -4,9 +4,6 @@ const getCart = state => state;
 
 export default createSelector(
   [getCart],
-  cart => {
-    return cart.reduce((accumulator, item) => {
-      return accumulator + Number(item.price);
-    }, 0);
-  }
+  cart =>
+    cart.reduce((accumulator, item) => accumulator + Number(item.price), 0)
 );

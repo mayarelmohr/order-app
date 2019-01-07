@@ -1,5 +1,8 @@
 import { FETCH_PRODUCTS } from '../actions';
 
+function getUniqueList(items, property) {
+  return [...new Set(items.map(item => item.properties[property]))];
+}
 function processData(payload) {
   const {
     metadata: { title, router, filter, cluster, descriptor },
@@ -16,15 +19,6 @@ function processData(payload) {
     routerList: getUniqueList(items, router),
     filterList: getUniqueList(items, filter),
   };
-}
-function getUniqueList(items, property) {
-  return [
-    ...new Set(
-      items.map(item => {
-        return item.properties[property];
-      })
-    ),
-  ];
 }
 
 export default function(

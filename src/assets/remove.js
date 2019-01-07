@@ -1,4 +1,3 @@
-import React from 'react';
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core';
 
@@ -13,22 +12,20 @@ const wrapperStyle = css`
     background-color: #d0d0d0;
   }
 `;
-const Remove = () => {
-  return (
-    <div css={wrapperStyle}>
-      <span
-        css={css`
-          transform: rotate(45deg);
-          position: absolute;
-          top: 8px;
-        `}
-      />
-      <span
-        css={css`
-          transform: rotate(-45deg);
-        `}
-      />
-    </div>
-  );
-};
+const Remove = () => (
+  <div css={wrapperStyle}>
+    <span
+      css={css`
+        transform: rotate(45deg);
+        position: absolute;
+        top: 8px;
+      `}
+    />
+    <span
+      css={css`
+        transform: rotate(-45deg);
+      `}
+    />
+  </div>
+);
 export default Remove;

@@ -8,7 +8,7 @@ export default createSelector(
   [getRouter, getFilter, getProducts],
   (currentRouter, currentFilter, products) => {
     const { router, filter, cluster, descriptor } = products;
-    let filteredList = {};
+    const filteredList = {};
     return products.items
       .filter(
         ({ properties: p }) =>
@@ -16,10 +16,10 @@ export default createSelector(
           p[filter].indexOf(currentFilter) !== -1
       )
       .reduce((groups, item) => {
-        const clusterValue = item['properties'][cluster];
-        item['computer_descriptor'] = computeDescriptorValue(
+        const clusterValue = item.properties[cluster];
+        item.computer_descriptor = computeDescriptorValue(
           descriptor,
-          item['properties']
+          item.properties
         );
         filteredList[clusterValue] = filteredList[clusterValue] || [];
         filteredList[clusterValue] = [...filteredList[clusterValue], item];
