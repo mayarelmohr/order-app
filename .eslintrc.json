@@ -1,57 +1,31 @@
 {
+  "extends":  ["airbnb", "prettier"],
+  "plugins": ["prettier","emotion"],
   "parser": "babel-eslint",
-  "plugins": [
-      "react",
-      "import",
-      "jsx-a11y",
-      "prettier",
-      "emotion"
-  ],
-  "extends": [
-      "airbnb-base",
-      "eslint:recommended",
-      "plugin:react/recommended",
-      "plugin:import/errors",
-      "plugin:import/warnings",
-      "plugin:react/recommended",
-      "plugin:prettier/recommended"
-  ],
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
   "rules": {
-    "no-debugger": "off",
+    "indent": ["error", 2, {"ignoredNodes": ["JSXElement"], "SwitchCase": 1 }],
+    "react/jsx-indent": ["error", 2],
+    "no-underscore-dangle": "off",
     "emotion/jsx-import": "error",
-    "emotion/no-vanilla": "error",
-    "emotion/import-from-emotion": "error",
-    "emotion/styled-import": "error",
-    "react/jsx-uses-react": "error",
-    "react/jsx-uses-vars": "error",
-    "max-len": ["error", 180, 2, {
-      "ignoreUrls": true,
-      "ignoreComments": false,
-      "ignoreRegExpLiterals": true,
-      "ignoreStrings": true,
-      "ignoreTemplateLiterals": true
-    }],
+    "no-nested-ternary": "off",
+    "react/jsx-one-expression-per-line": "off",
+    "no-shadow": "off",
+    "react/prop-types": [2, {}],
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "prettier/prettier": [
       "error",
       {
         "singleQuote": true,
         "trailingComma": "es5",
-        "printWidth": 80
+        "printWidth": 100
       }
-    ],
-    "quotes": [2, "single", { "avoidEscape": true }],
-    "arrow-body-style":"off",
-    "global-require": "off",
-    "no-underscore-dangle": "off",
-    "no-nested-ternary": "off",
-    "react/display-name": ["off", { "ignoreTranspilerName": false }]
-  },
-  "settings": {
-      "import/core-modules": [ "react" ]
-  },
-  "env": {
-    "browser": true,
-    "node": true,
-    "jasmine": true
+    ]
   }
 }
