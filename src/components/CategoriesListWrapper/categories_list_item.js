@@ -25,7 +25,6 @@ class CategoriesListItem extends React.Component {
       cluster_name: clusterName,
     } = this.props.content;
     const isChecked = this.props.checked;
-    debugger;
     const hasOffer = offer !== null;
     const price = hasOffer ? offer.price_after_discount : properties.total_selling_price;
     return (
